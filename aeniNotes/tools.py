@@ -38,3 +38,12 @@ def list_notes() -> str:
         return "No notes saved yet."
     titles = [f.replace("_", " ").replace(".json", "") for f in files]
     return "Your saved notes:\n" + "\n".join(f"- {t}" for t in titles)
+def delete_note(title: str) -> str:
+    '''This function is used to delete the notes from memory'''
+    ensure_notes_folder()
+    filename = title.lower().replace(" ", "_") + ".json"
+    filepath = os.path.join(NOTES_DIR, filename)
+    if not os.path.exists(filepath):
+        return f"No note found with title '{title}'."
+    os.remove(filepath)
+    return f"Note '{title}' deleted successfully."

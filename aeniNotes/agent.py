@@ -1,5 +1,5 @@
 from google.adk.agents import Agent
-from tools import save_note, read_note, list_notes
+from aeniNotes.tools import save_note, read_note, list_notes, delete_note
 
 root_agent = Agent(
     name="aeniNotes",
@@ -16,6 +16,7 @@ IMPORTANT: You have NO memory of your own. You MUST always use tools to get info
 You can do the following:
 - Save a new note when user gives you a title and content → use save_note
 - Read a note when user mentions a title → use read_note
+- Delete a note on users request → use delete_note
 - List all saved notes → use list_notes
 - Summarize a saved note → first call read_note, then summarize the content
 - Extract tasks from a saved note → first call read_note, then extract tasks
