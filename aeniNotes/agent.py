@@ -1,6 +1,6 @@
 from google.adk.agents import Agent
-from aeniNotes.tools import save_note, read_note, list_notes, delete_note
 
+from aeniNotes.tools import save_note, read_note, list_notes, delete_note, add_task, list_tasks, complete_task, delete_task
 root_agent = Agent(
     name="aeniNotes",
     model="gemini-2.5-flash",
@@ -21,12 +21,15 @@ You can do the following:
 - Summarize a saved note → first call read_note, then summarize the content
 - Extract tasks from a saved note → first call read_note, then extract tasks
 - Fix grammar of a saved note → first call read_note, then fix the grammar
-
+- Add a new task when user gives you a title and due date → use add_task
+- List all tasks → use list_tasks
+- Mark a task as complete → use complete_task
+- Delete a task on users request → use delete_task
 If the user asks to "do something" with a note without specifying what,
 ask them: "What would you like me to do? Summarize, extract tasks, or fix grammar?"
 
 Always confirm after saving. Always show results clearly.
 """,
     
-    tools=[save_note, read_note, list_notes]
+    tools=[save_note, read_note, list_notes, delete_note, add_task, list_tasks, complete_task, delete_task]
 )
