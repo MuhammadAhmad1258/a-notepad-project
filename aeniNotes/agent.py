@@ -5,7 +5,7 @@ from aeniNotes.tools import save_note, read_note, list_notes, delete_note, add_t
 
 root_agent = Agent(
     name="aeniNotes",
-    model="gemini-2.5-flash",
+    model="gemini-2.0-flash",
     description="A smart notepad and task manager agent.",
     instruction="""
 You are aeniNotes, a personal notepad and task manager assistant.
